@@ -1,0 +1,214 @@
+/* @link https://utopia.fyi/type/calculator?c=720,16,1.2,1280,21,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+    --step--2: clamp(0.69rem, calc(0.51rem + 0.42vw), 0.84rem);
+    --step--1: clamp(0.83rem, calc(0.55rem + 0.62vw), 1.05rem);
+    --step-0: clamp(1rem, calc(0.6rem + 0.89vw), 1.31rem);
+    --step-1: clamp(1.2rem, calc(0.63rem + 1.26vw), 1.64rem);
+    --step-2: clamp(1.44rem, calc(0.65rem + 1.74vw), 2.05rem);
+    --step-3: clamp(1.73rem, calc(0.65rem + 2.39vw), 2.56rem);
+    --step-4: clamp(2.07rem, calc(0.62rem + 3.23vw), 3.2rem);
+    --step-5: clamp(2.49rem, calc(0.54rem + 4.34vw), 4.01rem);
+  }
+  
+  :root {
+    --font-headings: "Cabinet Grotesk", sans-serif;
+    --font-body: "Satoshi", sans-serif;
+  
+    --color-primary: #503e3e;
+    --color-secondary: #fafafa;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: content-box;
+  }
+  
+  html,
+  body {
+    min-height: 100%;
+  }
+  
+  body {
+    font-size: var(--step-0);
+    line-height: 1.5;
+    font-family: var(--font-body);
+    padding: var(--step-2);
+    font-weight: 200;
+    overflow-x: hidden;
+  }
+  
+  .table-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  h1,
+  th {
+    font-family: var(--font-headings);
+    text-align: left;
+  }
+  
+  table {
+    width: 100%;
+    border: 2px solid #ddd;
+    background-color: #f1f1f1;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #ddd;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+  }
+  
+  td,
+  th {
+    padding: var(--step--2);
+    vertical-align: top;
+  }
+  
+  small {
+    display: inline-block;
+    font-size: var(--step--1);
+  }
+  
+  figcaption {
+    display: flex;
+    margin-bottom: var(--step-0);
+  }
+  
+  h1 {
+    margin-bottom: 0;
+  }
+  
+  strong {
+    font-weight: 600;
+  }
+  
+  .offcanvas {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    width: clamp(300px, 80%, 720px);
+    box-shadow: 0 0 var(--step-2) 0 var(--color-primary);
+    min-height: 100%;
+    background-color: var(--color-secondary);
+    top: 0;
+    right: 0;
+    transform: translateX(calc(100% + var(--step-3)));
+    transition: transform 0.3s ease-in-out;
+    padding: var(--step-0);
+  }
+  
+  .offcanvas-active {
+    transform: translateX(0);
+  }
+  
+  dt, dd {
+    padding: 0;
+    margin: 0;
+  }
+  
+  dt {
+    font-weight: bold;
+  }
+  
+  dd {
+    margin-bottom: var(--step-0);
+  }
+  
+  .offcanvas h1 {
+    margin: 0;
+  }
+  
+  .offcanvas-header {
+    text-align: right;
+  }
+  
+  button {
+    border-width: 0;
+    background-color: transparent;
+  }
+  
+  @media screen and (max-width: 1260px) {
+    .offcanvas {
+      display: block;
+    }
+  
+    .table-wrapper {
+      max-width: 568px;
+    }
+  
+    table,
+    tr,
+    td,
+    tbody {
+      display: flex;
+      flex-direction: row;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+    }
+  
+    br {
+      display: none;
+    }
+  
+    tr {
+      padding: var(--step--2);
+    }
+    
+    td {
+      padding: 0;
+    }
+  
+    tr {
+      padding-right: calc(3 * var(--step-2));
+      position: relative;
+    }
+  
+    small {
+      max-width: 60ch;
+    }
+  
+    tr::after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: var(--step--2);
+      top: 50%;
+      transform: translateY(-50%);
+      padding: var(--step--2);
+    }
+  
+    thead {
+      display: none;
+    }
+  
+    tr td:nth-child(3),
+    tr td:nth-child(4) {
+      flex-grow: 0;
+      flex-basis: auto;
+      padding-right: 1ch;
+    }
+  
+    tr td:nth-child(4)::before {
+      content: "/";
+      transform: translateX(-100%);
+    }
+  
+    tr td:nth-child(5) {
+      display: none;
+    }
+  
+    tr td:nth-child(6),
+    tr td:nth-child(7) {
+      display: none;
+    }
+  }
+  
